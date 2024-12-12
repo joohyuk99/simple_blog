@@ -1,0 +1,30 @@
+<h1>
+    <%= post.title %>
+</h1>
+<p>
+    <%= post.content %>
+</p>
+<p>Author: <%= post.author %>
+</p>
+
+<h2>Comments</h2>
+<ul>
+    <% comments.forEach(c=> { %>
+        <li><strong>
+                <%= c.author %>:
+            </strong>
+            <%= c.content %>
+        </li>
+        <% }) %>
+</ul>
+
+<% if(user) { %>
+    <form action="/posts/<%= post.id %>/comment" method="POST">
+        <div>
+            <textarea name="content" rows="3" cols="50"></textarea>
+        </div>
+        <button type="submit">Add Comment</button>
+    </form>
+    <% } else { %>
+        <p><a href="/login">Login</a> to add a comment.</p>
+        <% } %>

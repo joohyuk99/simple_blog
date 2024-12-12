@@ -1,0 +1,9 @@
+<h1>Post List</h1>
+<ul>
+    <% posts.forEach(post=> { %>
+        <li><a href="/posts/<%= post.id %>">
+                <%= post.title %>
+            </a> by <%= post.author %>
+        </li>
+        <% }) %>
+</ul>
